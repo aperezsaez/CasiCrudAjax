@@ -26,6 +26,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update(post_params)
         format.js { render nothing: true, notice: "La buena actualizada" }
+        format.json { render :show, status: :created, location: @post }
       end
     end
   end

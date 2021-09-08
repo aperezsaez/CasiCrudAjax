@@ -1,1 +1,3 @@
-$("#post_<%= @post.id %>").replaceWith("<%= j render('posts/form'), post: @post %>")
+$('#myForm').empty()
+$("#post_<%= @post.id %>").replaceWith("<%= j render('posts/posts', p: @post) %>")
+$('#myForm').empty()
