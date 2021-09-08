@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    if params[:query].present?
+      @search_post = Post.where('title LIKE ? or content LIKE ?',params[:query],params[:query])
+    else  
+      @search_post = Post.all
+    end
   end
 
   def new
